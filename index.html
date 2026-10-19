@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ዓውደ ነገሥት/ Awde Negest</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>ዓውደ ነገሥት/ Awde Negest</h1>
+        <p class="subtitle">ጥንታዊ የኢትዮጵያውያን ኮከብ አቆጣጠር / Ethiopian Ancient Astrology</p>
+
+        <div class="input-group">
+            <label for="personName">የእርስዎ ስም / Your Name</label>
+            <div class="input-wrapper">
+                <input type="text" id="personName" placeholder="Type name...">
+                <button class="kbd-btn" onclick="openKeyboardFor('personName')" title="Virtual Keyboard">⌨️</button>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label for="motherName">የእናት ስም / Mother's Name</label>
+            <div class="input-wrapper">
+                <input type="text" id="motherName" placeholder="Type mother's name...">
+                <button class="kbd-btn" onclick="openKeyboardFor('motherName')" title="Virtual Keyboard">⌨️</button>
+            </div>
+        </div>
+
+        <button id="calculateBtn" onclick="calculateAstrology()">ኮክብዎን ያስሉ / Calculate Sign</button>
+        <button id="clearBtn" onclick="clearInputs()">ያጥፉ / Clear</button>
+
+        <div id="resultBox" class="hidden"></div>
+    </div>
+
+    <!-- Custom Amharic Keyboard -->
+    <div id="keyboard" class="keyboard hidden">
+        <div class="keyboard-header">
+            <button onclick="closeKeyboard()">መጻፍያውን ይዝጉ / Close Keyboard</button>
+            <button onclick="backspace()">ለመሰረዝ / Backspace</button>
+        </div>
+        <div id="keysContainer" class="keys-container"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
