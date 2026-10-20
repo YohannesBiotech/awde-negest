@@ -3,41 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ዓውደ ነገሥት/ Awde Negest</title>
+    <title>Awde Negest Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>ዓውደ ነገሥት/ Awde Negest</h1>
-        <p class="subtitle">ጥንታዊ የኢትዮጵያውያን ኮከብ አቆጣጠር / Ethiopian Ancient Astrology</p>
+        <!-- Top Bar with Contact & Language -->
+        <div class="top-bar">
+            <a href="https://linktr.ee/yohannesbiotech" target="_blank" class="contact-btn" id="t-contactBtn">ያግኙን</a>
+            <div class="lang-switcher">
+                <select id="languageSelect" onchange="switchLanguage()">
+                    <option value="am" selected>አማርኛ (Amharic)</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
+        </div>
+
+        <h1 id="t-title">ዓውደ ነገሥት</h1>
+        <p class="subtitle" id="t-subtitle">ጥንታዊ የኢትዮጵያ ኮከብ ቆጠራ</p>
 
         <div class="input-group">
-            <label for="personName">የእርስዎ ስም / Your Name</label>
+            <label for="personName" id="t-nameLabel">የእርስዎ ስም</label>
             <div class="input-wrapper">
-                <input type="text" id="personName" placeholder="Type name...">
+                <input type="text" id="personName" placeholder="ስም ያስገቡ...">
                 <button class="kbd-btn" onclick="openKeyboardFor('personName')" title="Virtual Keyboard">⌨️</button>
             </div>
         </div>
 
         <div class="input-group">
-            <label for="motherName">የእናት ስም / Mother's Name</label>
+            <label for="motherName" id="t-motherLabel">የእናት ስም</label>
             <div class="input-wrapper">
-                <input type="text" id="motherName" placeholder="Type mother's name...">
+                <input type="text" id="motherName" placeholder="የእናት ስም ያስገቡ...">
                 <button class="kbd-btn" onclick="openKeyboardFor('motherName')" title="Virtual Keyboard">⌨️</button>
             </div>
         </div>
 
-        <button id="calculateBtn" onclick="calculateAstrology()">ኮክብዎን ያስሉ / Calculate Sign</button>
-        <button id="clearBtn" onclick="clearInputs()">ያጥፉ / Clear</button>
+        <button id="calculateBtn" onclick="calculateAstrology()">
+            <span id="t-calcBtn">ኮከብ አስላ</span>
+        </button>
+        <button id="clearBtn" onclick="clearInputs()">
+            <span id="t-clearBtn">አጥፋ</span>
+        </button>
 
         <div id="resultBox" class="hidden"></div>
+
+        <!-- Footer Developer Link -->
+        <div class="footer">
+            <a href="https://linktr.ee/yohannesbiotech" target="_blank" id="t-developerLink">አበልጻጊውን ያግኙ</a>
+        </div>
     </div>
 
     <!-- Custom Amharic Keyboard -->
     <div id="keyboard" class="keyboard hidden">
         <div class="keyboard-header">
-            <button onclick="closeKeyboard()">መጻፍያውን ይዝጉ / Close Keyboard</button>
-            <button onclick="backspace()">ለመሰረዝ / Backspace</button>
+            <button class="close-btn" id="closeKeyboard" onclick="closeKeyboard()">❌ ኪቦርድ ዝጋ</button>
+            <button class="enter-btn" onclick="keyboardEnter()" id="t-enterBtn">አስገባ ⏎</button>
+            <button class="backspace-btn" onclick="backspace()" id="t-backspaceBtn">⌫ አጥፋ</button>
         </div>
         <div id="keysContainer" class="keys-container"></div>
     </div>
